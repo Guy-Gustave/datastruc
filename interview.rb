@@ -51,7 +51,7 @@ def merge_k_lists(lists)
   
 end
 
-self is a special variable that points to the object that "owns" the currently executing code. Ruby uses self everwhere: For instance variables: @myvar. For method and constant lookup. When defining methods, classes and modules.2 nov. 2015
+# self is a special variable that points to the object that "owns" the currently executing code. Ruby uses self everwhere: For instance variables: @myvar. For method and constant lookup. When defining methods, classes and modules.2 nov. 2015
 
 
 def quicksort(array, lower = 0, higher = array.length - 1)
