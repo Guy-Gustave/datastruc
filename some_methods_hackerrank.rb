@@ -1,25 +1,25 @@
-In this challenge, your task is to determine what the take method does. Study the examples below, then implement the method.
+# # In this challenge, your task is to determine what the take method does. Study the examples below, then implement the method.
+# #response
+# # def take(arr, n)
+# #   arr.shift(n)
+# #   return arr
+# # end
 
-> take([1,2,3], 1)
-[2, 3]
-> take([1,2,3], 2)
-[3]
-> take([1,2,3])
-[2, 3]
-
-#response
-def take(arr, n)
-  arr.shift(n)
-  return arr
-end
+# # take([1,2,3], 1)
+# # [2, 3]
+# # take([1,2,3], 2)
+# # [3]
+# # take([1,2,3])
+# # [2, 3]
 
 
-#-----------------------------------------------------------------------------------------------------
-# You are given a partially complete code. Your task is to fill in the blanks (______).
 
-# The square_of_sum method computes the sum of the elements in an input array and returns the square of the summed elements.
+# #-----------------------------------------------------------------------------------------------------
+# # You are given a partially complete code. Your task is to fill in the blanks (______).
 
-#response
+# # The square_of_sum method computes the sum of the elements in an input array and returns the square of the summed elements.
+
+# #response
 def square_of_sum (my_array, proc_square, proc_sum)
   sum = proc_sum.call(my_array)
   proc_square.call(sum)
@@ -31,18 +31,18 @@ my_array = gets.split().map(&:to_i)
 
 puts square_of_sum(my_array, proc_square_number, proc_sum_array)
 
-# Write a lambda which takes an integer and square it
+# # Write a lambda which takes an integer and square it
 square      = ->(x){x*x}
-# Write a lambda which takes an integer and increment it by 1
+# # Write a lambda which takes an integer and increment it by 1
 plus_one    = ->(x){x+1}
-# Write a lambda which takes an integer and multiply it by 2
+# # Write a lambda which takes an integer and multiply it by 2
 into_2      = ->(x){x*2}
 
-# Write a lambda which takes two integers and adds them
+# # Write a lambda which takes two integers and adds them
 adder       = ->(x,y){x+y}
 
-# Write a lambda which takes a hash and returns an array of hash values
-values_only = ->(hash) { hash.values}
+# # Write a lambda which takes a hash and returns an array of hash values
+# values_only = ->(hash) { hash.values}
 
 input_number_1 = gets.to_i
 input_number_2 = gets.to_i
@@ -52,3 +52,28 @@ a = square.(input_number_1); b = plus_one.(input_number_2);c = into_2.(input_num
 d = adder.(input_number_1, input_number_2);e = values_only.(input_hash)
 
 p a; p b; p c; p d; p e
+
+
+multiply_function = -> (number) do
+  -> (another_number) do
+      number * another_number
+  end
+end
+
+doubler = multiply_function.(2)
+tripler = multiply_function.(3)
+
+puts doubler.(4)
+puts tripler.(4)
+
+#Currying is a technique in which a function accepts  parameters and turns it into a sequence of  functions, each of them take 1 parameter.
+
+power_function = -> (x, z) {
+  (x) ** z
+}
+
+base = gets.to_i
+raise_to_power = power_function.curry.(base)
+
+power = gets.to_i
+puts raise_to_power.(power)
