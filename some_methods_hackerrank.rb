@@ -77,3 +77,21 @@ raise_to_power = power_function.curry.(base)
 
 power = gets.to_i
 puts raise_to_power.(power)
+
+# Write a function named transcode which takes a  encoded string as a parameter, converts it to an  encoded string, and returns the result.
+def transcode(str)
+  str.force_encoding("UTF-8")
+end
+
+# In this challenge, your task is to code a serial_average method which is described below:
+# It takes a fixed width string in format: SSS-XX.XX-YY.YY. SSS is a three digit serial number, XX.XX and YY.YY are two digit numbers including up to two decimal digits.
+# It returns a string containing the answer in format SSS-ZZ.ZZ where SSS is the serial number of that input string, and ZZ.ZZ is the average of XX.XX and YY.YY.
+# All numbers are rounded off to two decimal places.
+
+def serial_average(fixed)
+  sss = fixed[0,3]
+  xx = fixed[4,5].to_f
+  yy = fixed[10,5].to_f
+  number = ((xx+yy)/2).round(2)
+  return "#{sss}-#{number}"
+end
